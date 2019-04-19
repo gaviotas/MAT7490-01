@@ -3,7 +3,7 @@
 - [뉴스 크롤러 github 링크](https://github.com/lumyjuwon/KoreaNewsCrawler)
 
 
-## xample
+## Example
 ```python word2vec.py```
 
 ## Todo
