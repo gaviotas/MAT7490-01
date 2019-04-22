@@ -1,24 +1,15 @@
-from konlpy.tag import Kkma
+from konlpy.tag import Mecab
 
 
 def generate_corpus(data):
-    kkma = Kkma()
+    mecab = Mecab()
 
-    sentences = []
-    list_vec = []
     word_list = []
 
-    for k in data:
-        sentences.append(kkma.sentences(k[0]))
-        for sentence in sentences:
-            for word in sentence:
-                list_vec.append(kkma.nouns(word))
-
-    for l in list_vec:
-        empty_vec = []
-        for word in l:
-            if len(word) >= 2:
-                empty_vec.append(word)
-        word_list.append(empty_vec)
-
+    for i, k in enumerate(data):
+        tokens = mecab.nouns(k)
+        tokens = [n for n in tokens if len(n) >= 2]
+        word_list.append(tokens)
+        # if i % 1000 == 0:
+        #     print(i)
     return word_list
